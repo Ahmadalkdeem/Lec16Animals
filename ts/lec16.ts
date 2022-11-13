@@ -6,7 +6,7 @@ const animalShowCase = document.getElementById(
 ) as HTMLDivElement;
 
 const btnStart = document.getElementById("btn-start") as HTMLButtonElement;
-
+let id: number
 // function resetGame(){}
 // function choosePlayer(){}
 btnStart.addEventListener("click", () => {
@@ -27,11 +27,24 @@ btnStart.addEventListener("click", () => {
 
   const img = document.getElementById(chosenAnimal.id) as HTMLImageElement;
   img.classList.add("chosen-animal");
+ 
+  setTimeout(() => {
+    const audio = new Audio(`./media/${chosenAnimal.voice}.wav`);
+    audio.play();
+    id = setInterval(() => {
+      chosenAnimal.translateX += chosenAnimal.step * 10;
+      img.style.transform = `translateX(${chosenAnimal.translateX}px)`;
 
-  setTimeout(()=>{
-    const audio = new Audio(`./media/${chosenAnimal.voice}.wav`)
-    audio.play()
-  }, 1000)
+      if (
+        img.getBoundingClientRect().x >
+        document.body.getBoundingClientRect().width
+      ) {
+        clearInterval(id)
+        //resetGame()
+      }
+      
+    }, 1000);
+  }, 1000);
 });
 
 animalArray

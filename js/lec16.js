@@ -2,6 +2,7 @@ import { Utils } from "./utils.js";
 import { animalArray } from "./runners.js";
 const animalShowCase = document.getElementById("animal-show-case");
 const btnStart = document.getElementById("btn-start");
+let id;
 // function resetGame(){}
 // function choosePlayer(){}
 btnStart.addEventListener("click", () => {
@@ -23,6 +24,15 @@ btnStart.addEventListener("click", () => {
     setTimeout(() => {
         const audio = new Audio(`./media/${chosenAnimal.voice}.wav`);
         audio.play();
+        id = setInterval(() => {
+            chosenAnimal.translateX += chosenAnimal.step * 10;
+            img.style.transform = `translateX(${chosenAnimal.translateX}px)`;
+            if (img.getBoundingClientRect().x >
+                document.body.getBoundingClientRect().width) {
+                clearInterval(id);
+                //resetGame()
+            }
+        }, 1000);
     }, 1000);
 });
 animalArray
