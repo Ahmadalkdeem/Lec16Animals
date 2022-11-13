@@ -3,28 +3,28 @@ export const runners = {
         name: "dog",
         id: "dog",
         voice: "woof",
-        img: "dog.gif",
+        img: "dog.png",
         step: 50,
     },
     horse: {
         name: "horse",
         id: "horse",
         voice: "neigh",
-        img: "horse.gif",
+        img: "horse.png",
         step: 70,
     },
     duck: {
         name: "duck",
         id: "duck",
         voice: "quack",
-        img: "duck.gif",
+        img: "duck.png",
         step: 40,
     },
     chick: {
         name: "chick",
         id: "chick",
         voice: "cheap",
-        img: "chick.gif",
+        img: "chick.png",
         step: 30,
     },
 };
@@ -53,5 +53,5 @@ export let animalArray = [];
 for (let k in runners) {
     let key = k; //"dog" | "horse" | "duck" | "chick"
     let animal = runners[key];
-    animalArray.push(animal);
+    animalArray.push(new Animal(animal.name, animal.id, animal.voice, animal.img, animal.step, false, 0));
 }
