@@ -1,0 +1,87 @@
+@keyframes change-color {
+  0% {
+    background-color: red;
+    transform: translateX(100px);
+  }
+  25% {
+    background-color: yellow;
+    transform: translateX(80px);
+  }
+  50% {
+    background-color: blue;
+    transform: translateX(120px);
+  }
+  100% {
+    background-color: green;
+    transform: translateX(140px);
+  }
+}
+
+ 
+
+.rounded {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  border-top: 3px solid dodgerblue;
+
+  animation: activity-indicator infinite linear 4s;
+}
+
+@keyframes activity-indicator {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+ 
+@keyframes bounce {
+  from,
+  20%,
+  53%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+
+  90% {
+    transform: translate3d(0, -4px, 0) scaleY(1.02);
+  }
+}
+.box {
+  animation-name: bounce;
+  transform-origin: center bottom;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
